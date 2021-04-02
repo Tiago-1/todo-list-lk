@@ -14,8 +14,13 @@ const Card = () => {
       if(data.find(t => t === state)){
         alert("Ya tienes una tarea con este nombre")
       }else{
-        setData([...data, state]);
-        setState("");
+        if(state ===''){
+          alert("Entrada vacia, necesitas la menos un caracter")
+        }else{
+          setData([...data, state]);
+          setState("");
+        }
+        
       }
     event.preventDefault();
   };

@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 const List = (props) => {
   const [state, setState] = useState(false);
   const [task, setTask] = useState(props.item);
@@ -9,8 +10,12 @@ const List = (props) => {
     setTask(event.target.value);
   };
   const handleSubmit = (event) => {
-    props.edit(props.item, task);
-    setState(false);
+    if(task=== ""){
+      alert("Entrada vacia, necesitas al menos un caracter")
+    }else{
+      props.edit(props.item, task);
+      setState(false);
+    }
     event.preventDefault();
   };
   const remove = () => {
